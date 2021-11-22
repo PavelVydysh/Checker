@@ -25,7 +25,7 @@ namespace Check
             }
         }
 
-        public void PressTheChecker(object sender, EventArgs e)
+        public void PressTheChecker(object sender, EventArgs e)//когда нажали на шашку
         {
             if (userMap.prevCheck != null)
             {
@@ -34,7 +34,7 @@ namespace Check
 
             userMap.pressedCheck = (sender as Checker);
 
-            int aboutChecker = userMap.map[userMap.pressedCheck.Location.Y/45, userMap.pressedCheck.Location.X / 45];//получаем значение ячейки из матрицы
+            int aboutChecker = userMap.map[userMap.pressedCheck.Location.Y/50, userMap.pressedCheck.Location.X / 50];//получаем значение ячейки из матрицы
 
             if (aboutChecker != 0 && aboutChecker == userMap.player)
             {
@@ -45,8 +45,8 @@ namespace Check
             {
                 if (userMap.isMoving)
                 {
-                    userMap.map[userMap.pressedCheck.Location.Y / 45, userMap.pressedCheck.Location.X / 45] = userMap.map[userMap.prevCheck.Location.Y / 45, userMap.prevCheck.Location.X / 45];
-                    userMap.map[userMap.prevCheck.Location.Y / 45, userMap.prevCheck.Location.X / 45] = aboutChecker;
+                    userMap.map[userMap.pressedCheck.Location.Y / 50, userMap.pressedCheck.Location.X / 50] = userMap.map[userMap.prevCheck.Location.Y / 50, userMap.prevCheck.Location.X / 50];
+                    userMap.map[userMap.prevCheck.Location.Y / 50, userMap.prevCheck.Location.X / 50] = aboutChecker;
                     userMap.pressedCheck.BackgroundImage = userMap.prevCheck.BackgroundImage;
                     userMap.prevCheck.BackgroundImage = null;
                     userMap.isMoving = false;

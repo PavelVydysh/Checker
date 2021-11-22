@@ -39,7 +39,7 @@ namespace Check
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Name = "Checker";
-            this.Size = new System.Drawing.Size(48, 48);
+            this.Size = new System.Drawing.Size(50, 50);
             this.ResumeLayout(false);
 
         }

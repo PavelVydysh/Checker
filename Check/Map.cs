@@ -15,7 +15,7 @@ namespace Check
         public Checker prevCheck;//состояние последней нажатой шашки
         public Checker pressedCheck; // нажатая кнопка
         const int sizeOfMap = 8; //Размер игрового поля
-        const int cellSize = 50;
+        public const int cellSize = 50;
         public List<Checker> cells = new List<Checker>(); // Лист ячеек
         public int[,] map = new int[sizeOfMap, sizeOfMap];
 
@@ -31,7 +31,7 @@ namespace Check
                 for (int j = 0; j < sizeOfMap; j++)
                 {
                     Checker cell = new Checker();
-                    cell.Size = new Size(cell.Width, cell.Height);
+                    //cell.Size = new Size(cell.Width, cell.Height);
                     cell.Location = new Point(j * cell.Height, i * cell.Width);//меняем позицию ячейки
                     cell.SetColorOfCheker(map[i, j]);
                     cell.SetBackColorOfCell(i, j);
@@ -42,11 +42,11 @@ namespace Check
 
         public Color GetPrevCheckerColor()//получем цвет нажатой шашки
         {
-            if (((prevCheck.Location.Y/cellSize % 2) != 0) && ((prevCheck.Location.X/cellSize % 2) == 0)) //ячейка четная по вертикали и нечетная по горизонтали
+            if (((prevCheck.Location.Y/cellSize % 2) != 0) && ((prevCheck.Location.X/cellSize % 2) == 0)) 
             {
                 return Color.Gray;
             }
-            else if (((prevCheck.Location.Y / cellSize % 2) == 0) && ((prevCheck.Location.X / cellSize % 2) != 0)) //ячейка четная по горизонтали и нечетная по вертикали
+            else if (((prevCheck.Location.Y / cellSize % 2) == 0) && ((prevCheck.Location.X / cellSize % 2) != 0)) 
             {
                 return Color.Gray;
             }
