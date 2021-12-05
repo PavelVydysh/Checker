@@ -11,6 +11,7 @@ namespace Check
     class Map
     {
         public bool isMoving;//находится ли шашка в состоянии хода
+        public bool isContinue;//можно ли есть дальше, после съеденной шашки
         public int player;//какой игрок ходит
         public Checker prevCheck;//состояние последней нажатой шашки
         public Checker pressedCheck; // нажатая кнопка
@@ -18,6 +19,7 @@ namespace Check
         public const int cellSize = 50;
         public List<Checker> cells = new List<Checker>(); // Лист ячеек
         public int[,] map = new int[sizeOfMap, sizeOfMap];
+        public int countEatSteps = 0;
 
         public Map()
         {
@@ -40,7 +42,7 @@ namespace Check
             }
         }
 
-        public Color GetPrevCheckerColor()//получем цвет нажатой шашки
+        public Color GetPrevCheckerColor(Checker prevCheck)//получем цвет нажатой шашки
         {
             if (((prevCheck.Location.Y/cellSize % 2) != 0) && ((prevCheck.Location.X/cellSize % 2) == 0)) 
             {
